@@ -8,7 +8,18 @@
         Title="MainWindow" Height="450" Width="800">
 
 	<StackPanel>
-		<TextBox Text="{Binding Path=Ime, UpdateSourceTrigger=PropertyChanged}"/>
-		<Label Content="{Binding Source='asd', Path=.}"/>
+		<DataGrid x:Name="Tabela" AutoGenerateColumns="False" ColumnWidth="*">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Ime" Binding="{Binding Path=Ime}"/>
+				<DataGridTextColumn Header="Bodovi" Binding="{Binding Path=Bodovi}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Pobede" Binding="{Binding Path=Pobede}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Nereseno" Binding="{Binding Path=Nereseno}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Izgubljeno" Binding="{Binding Path=Izgubljeno}" IsReadOnly="True"/>
+			</DataGrid.Columns>
+		</DataGrid>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+			<Button Content="Nova utakmica" Margin="100 0" Click="NovaUtakmica"/>
+			<Button Content="Kraj lige" Margin="100 0"/>
+		</StackPanel>
 	</StackPanel>
 </Window>

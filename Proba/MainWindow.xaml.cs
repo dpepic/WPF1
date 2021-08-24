@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,18 +18,29 @@ namespace Proba
 {
 	public partial class MainWindow : Window
 	{
-		public Tim asd { get; set; } = new();
+		public List<Tim> Timovi { get; set; } = new();
 
 		public MainWindow()
 		{
 			InitializeComponent();
-			this.DataContext = asd;
+			//Timovi.Add(new Tim { Ime = "asdasd" });
+			//Timovi.Add(new Tim { Ime = "drgrdg" });
+			//Timovi.Add(new Tim { Ime = "asdv" });
+			Tabela.ItemsSource = Timovi;
+
+		}
+
+		private void NovaUtakmica(object sender, RoutedEventArgs e)
+		{
+			Utakmica ut = new(Timovi);
+			ut.Owner = this;
+			ut.ShowDialog();
 		}
 	}
 
 	public class Tim
 	{
-		public string Ime { get; set; } = "asdasd";
+		public string Ime { get; set; }
 
 		public int Pobede { get; set; }
 		public int Nereseno { get; set; }
