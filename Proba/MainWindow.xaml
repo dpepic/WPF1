@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-	<StackPanel>
+	<StackPanel Name="Panel">
 		<DataGrid x:Name="Tabela" AutoGenerateColumns="False" ColumnWidth="*">
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="Ime" Binding="{Binding Path=Ime}"/>
@@ -19,7 +19,7 @@
 		</DataGrid>
 		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 			<Button Content="Nova utakmica" Margin="100 0" Click="NovaUtakmica"/>
-			<Button Content="Kraj lige" Margin="100 0"/>
+			<Button Content="Kraj lige" Margin="100 0"  Click="Kraj"/>
 		</StackPanel>
 	</StackPanel>
 </Window>

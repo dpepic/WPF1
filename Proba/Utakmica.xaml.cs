@@ -22,6 +22,9 @@ namespace Proba
 		public List<Tim> lista;
 
 		public string Tim1 { get; set; }
+		public string Tim2 { get; set; }
+		public uint Golovi1 { get; set; }
+		public uint Golovi2 { get; set; }
 
 		public Utakmica(List<Tim> t)
 		{
@@ -30,11 +33,35 @@ namespace Proba
 			DataContext = this;
 		}
 
+		private void Izlaz(object sender, RoutedEventArgs e) => Close();
+
+
 		private void Unos(object sender, RoutedEventArgs e)
 		{
-			if (lista.Where(tim => tim.Ime.ToLower() == Tim1.ToLower()).Any())
+			if (Tim1.ToLower() != Tim2.ToLower() &&
+				lista.Where(tim => tim.Ime.ToLower() == Tim1.ToLower()).Any() &&
+				lista.Where(tim => tim.Ime.ToLower() == Tim2.ToLower()).Any())
 			{
-				MessageBox.Show("Potoji!");
+				var t1 = lista.Find(t => t.Ime.ToLower() == Tim1.ToLower());
+				var t2 = lista.Find(t => t.Ime.ToLower() == Tim2.ToLower());
+				if (Golovi1 > Golovi2)
+				{
+					t1.Pobede++;
+					t2.Izgubljeno++;
+					t1.Bodovi += 3;
+				} else if (Golovi2 > Golovi1)
+				{
+					t2.Pobede++;
+					t1.Izgubljeno++;
+					t2.Bodovi += 3;
+				} else
+				{
+					t1.Nereseno++;
+					t2.Nereseno++;
+					t1.Bodovi++;
+					t2.Bodovi++;
+				}
+				Close();
 			} else
 			{
 				MessageBox.Show("Jock:/");

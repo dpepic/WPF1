@@ -12,18 +12,18 @@
 				<Label>Tim:</Label>
 				<TextBox Text="{Binding Path=Tim1}" MinWidth="100"/>
 				<Label>Golovi:</Label>
-				<TextBox MinWidth="100"/>
+				<TextBox Text="{Binding Path=Golovi1}" MinWidth="100"/>
 			</UniformGrid>
 			<UniformGrid Columns="2">
 				<Label>Tim:</Label>
-				<TextBox MinWidth="100"/>
+				<TextBox Text="{Binding Path=Tim2}" MinWidth="100"/>
 				<Label>Golovi:</Label>
-				<TextBox MinWidth="100"/>
+				<TextBox Text="{Binding Path=Golovi2}" MinWidth="100"/>
 			</UniformGrid>
 			
 		</StackPanel>
 		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-			<Button Content="Otkazi" Margin="100 0"/>
+			<Button Content="Otkazi" Margin="100 0" Click="Izlaz"/>
 			<Button Content="OK" Margin="100 0" Click="Unos"/>
 		</StackPanel>
 
